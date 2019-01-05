@@ -1,0 +1,35 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: rouge
+markdown: kramdown
+title: Dylan Steele
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: Dylan Steele Blog
+
+description: Code, Stuff and, Thngs and maybe such.
+author:
+  name: Dylan Steele
+  email: dylansteele57@gmail.com
+  github: dills122
+  linkedin: dssteele122
+  bio: Passionate developer working in the FinTech industry primarily in web development.
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH: "https://dills122.github.io/Blog/"
+
+plugins:
+  - jekyll-paginate
