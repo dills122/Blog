@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Employee Manager App
-categories: [general, release]
-tags: [release, dills122]
+categories: [general]
+tags: [ dills122]
 description: An employee manager app built with Vue.js and firebase.
 fullview: true
 ---
