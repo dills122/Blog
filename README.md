@@ -1,27 +1,11 @@
-dbyll
-=====
+# Personal Blog
 
-Open source stylish, minimalistic theme for jekyll.  
-Demo: http://dbtek.github.io/dbyll/
+This is the source to my personal blog that is currently hosted on my GitHub Pages. If you're interested in the blog content check it out [here](https://dills122.github.io/) or if you're interested in the source continue reading below.
 
-## New
-- Dbyll for Ghost is now available. Get it [here](https://github.com/dbtek/dbyll-ghost) now.
-- :new: Check out [Paper](https://github.com/dbtek/paper), new Material Design Jekyll theme.
-
-### Features
-- Responsive layout.
-- Supports tags and categories.
-- Social profile and bio of author.
-- Bootstrap based.
-- Glyphicon and Font-Awesome Icons.
-- Pagination.
-- Syntax highlighting with pygments.
-- Disqus comments.
-- :new: Custom sidebar background image.
-
+This blog is using [Jekyll](https://jekyllrb.com/) and [Dbyll's](https://github.com/dbtek/dbyll) theme.
 
 ### Download
-* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
+* [Download Blog](https://github.com/dills122/dills122/archive/master.zip)
 
 ### Install
 - You need to have [ruby](https://www.ruby-lang.org/en/documentation/installation/) installed in your system.
@@ -30,7 +14,7 @@ Demo: http://dbtek.github.io/dbyll/
 - Then - ```bundle exec jekyll serve```
 
 ### Screenshots
-![dbyll-screenshot](assets/media/dbyll-ss.png)
+![dbyll-screenshot](assets/media/blog-img.png)
 
 ### License
 - [MIT](http://opensource.org/licenses/MIT)
