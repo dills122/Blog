@@ -12,7 +12,7 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: Dylan Steele Blog
+      title: Dylan Steele's Blog
 
 description: Code, Stuff and, Thngs and maybe such.
 author:
@@ -29,7 +29,7 @@ tags_path: tags.html
 # set it as url of an image
 # sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
 
-BASE_PATH: "https://dills122.github.io/Blog/"
+BASE_PATH: "https://dills122.github.io/Blog"
 
 plugins:
   - jekyll-paginate

@@ -1,5 +1,8 @@
 # Personal Blog
 
+Here is a link to the live site
+[Check it out](https://dills122.github.io/Blog/)
+
 This is the source to my personal blog that is currently hosted on my GitHub Pages. If you're interested in the blog content check it out [here](https://dills122.github.io/) or if you're interested in the source continue reading below.
 
 This blog is using [Jekyll](https://jekyllrb.com/) and [Dbyll's](https://github.com/dbtek/dbyll) theme.
