@@ -18,6 +18,7 @@ Processing data concurrently is hard especially when data integrity is key and l
 - [How it Works](#how-it-works)
 - [Block Types](#block-types)
   - [Processing Blocks](#processing-blocks)
+    - [Transform Block](#transform-block)
   - [Transporting Blocks](#transporting-blocks)
 
 ## How it Works
@@ -38,7 +39,18 @@ For a more detailed explanation [here](https://channel9.msdn.com/Shows/Going+Dee
 
 ## Block Types
 
+TPL has a variety of different block types, but we'll only go over the most commonly used blocks and for a full list and description checkout the documentation [here](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/dataflow-task-parallel-library#predefined-dataflow-block-types). Blocks can be split up into two different catagories, processing and transporting blocks with one exception the Action Block, which is more of a dead-end block since it only accepts input.
+
+> Block I/O accepts Tuples
 
 ### Processing Blocks
+
+#### Transform Block
+
+{% highlight csharp %}
+
+var block = new TransformBlock<int,int>();
+
+{% endhighlight %}
 
 ### Transporting Blocks
