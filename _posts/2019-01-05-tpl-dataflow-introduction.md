@@ -1,14 +1,14 @@
 ---
 layout: post
 title: TPL Dataflow Library Introduction
-categories: [general, release]
-tags: [release, dills122]
+categories: [general, tutorial]
+tags: [tutorial, dills122, TPL]
 description: Introduction to Microsoft TPL Dataflow Library
 ---
 
 ## Introduction
 
-Processing data concurrently is hard especially when data integrity is key and lets be honest when isn't that a requirement in the enterprise world. Good news for all .NET fan boys out there, the .NET ecosystem has a library called TPL Dataflow for just this type of workflow. TPL gains its robustness from its design in the form of "pipelines" by connecting different types of processing or transporting block in a flow. This design allows the underlying library to handle the overhead of managing threads and processing order. Throughout this introduction we will discuss the fundamentals of TPL and gives some example use cases.
+Processing data concurrently is hard, especially when data integrity is key and lets be honest when isn't that a requirement in the enterprise world. Good news for all .NET fan boys out there, the Microsoft has a library called TPL Dataflow for just this type of workflow. TPL gains its robustness from its design in the form of "pipelines" by connecting different types of processing or transporting block in a flow. This design allows the underlying library to handle the overhead of managing threads and processing order. Throughout this introduction we will discuss the fundamentals of TPL and gives some example use cases.
 
 ## Contents
 
@@ -122,5 +122,17 @@ multiplyTransform.LinkTo(printBlock, option);
 
 {% endhighlight %}
 
-So as you can see from the example above to build a pipeline you simply just need to link each block together into the desired flow order and direction.
+So as you can see from the example above to build a pipeline you simply just need to link each block together into the desired flow order and direction. Once the flow has been defined and configured then the last piece is to fill the pipeline and wait for the results.
 
+{% highlight csharp %}
+
+//Continued from previous example
+
+buffer.Post(value);
+buffer.Complete();
+
+printBlock.Completion.Wait();
+
+//This example would print the values to the console instead of returning them
+
+{% endhighlight %}
