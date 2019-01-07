@@ -6,6 +6,7 @@ exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
 title: Dylan Steele
+google_analytics: UA-84828906-1
 
 defaults:
   -
