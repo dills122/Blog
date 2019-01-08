@@ -18,7 +18,9 @@
      * Tags & categories tab activation based on hash value. If hash is undefined then first tab is activated.
      */
     function activateTab() {
-      if(['/tags.html', '/categories.html'].indexOf(window.location.pathname) > -1) {
+      var wPath = window.location.pathname.split('/');
+      var path = wPath[2] ? wPath[2] : wPath[1];
+      if(['tags.html', 'categories.html'].indexOf(path) > -1) {
         var hash = window.location.hash;
         if(hash)
           $('.tab-pane').length && $('a[href="' + hash + '"]').tab('show');
