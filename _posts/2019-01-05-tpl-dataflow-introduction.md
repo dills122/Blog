@@ -8,7 +8,7 @@ description: Introduction to Microsoft TPL Dataflow Library
 
 ## Introduction
 
-Processing data concurrently is hard, especially when data integrity is key and lets be honest when isn't that a requirement in the enterprise world. Good news for all .NET fan boys out there, the Microsoft has a library called TPL Dataflow for just this type of workflow. TPL gains its robustness from its design in the form of "pipelines" by connecting different types of processing or transporting block in a flow. This design allows the underlying library to handle the overhead of managing threads and processing order. Throughout this introduction we will discuss the fundamentals of TPL and gives some example use cases.
+Processing data concurrently is hard, especially when data integrity is key and when isn't that priority number one. Well good news for all .NET fan boys out there, Microsoft has a library called TPL Dataflow for just this type of workflow. TPL gains its robustness from the design, which focuses on building "pipelines" by connecting different types of blocks in a flow then processing the data through the finished pipeline. This design allows the underlying library to handle the overhead of managing threads and processing order and allow the developer to focus on their job. Throughout this introduction we will discuss the fundamentals of TPL and gives some examples of it.
 
 ## Contents
 
@@ -23,7 +23,8 @@ Processing data concurrently is hard, especially when data integrity is key and 
   - [Transporting Blocks](#transporting-blocks)
     - [Buffer Block](#buffer-block)
     - [Broadcast Block](#broadcast-block)
-- [Connecting Blocks](#connecting-blocks)
+- [Building a Pipeline](#Building-a-Pipeline)
+- [Wrapping Up](#Wrapping-Up)
 
 ## How it Works
 
@@ -31,9 +32,9 @@ TPL functions in a producer and consumer model where most blocks function as bot
 
 > TPL functions in the producer consumer model
 
-Think of TPL as an assembly line with many different stations for processing, the product is constantly moving and only is interrupted for processing when a work must interact with it, same with TPL except the product is data and the worker is a block.
+Think of TPL as an assembly line with many different stations for processing, the product is constantly moving and only is interrupted for processing when a worker must interact with it, same with TPL except the product is data and the worker is a block.
 
-Another good analogy for TPL is building with Legos, each TPL block is like a Lego block and all you need to do is connect them together to accomplish your task.
+Another good analogy for TPL is building with Legos, each TPL block is like a Lego block and all you need to do is connect them together to accomplish your task. Well it's not that simple, but kinda.
 
 **Well how does the data flow between blocks?**
 
@@ -117,12 +118,13 @@ var printBlock = new ActionBlock<int>();
 
 var option = new DataflowLinkOptions() { PropagateCompletion = true }
 
+//Linking the blocks together
 buffer.LinkTo(multiplyTransform, option);
 multiplyTransform.LinkTo(printBlock, option);
 
 {% endhighlight %}
 
-So as you can see from the example above to build a pipeline you simply just need to link each block together into the desired flow order and direction. Once the flow has been defined and configured then the last piece is to fill the pipeline and wait for the results.
+So as you can see from the example above to build a pipeline you simply just need to link each block together into the desired flow order and direction. What allows the data to keep being passed from one block to another  is the `PropagateCompletion`, which is passed along with the data. This event ensures that a block doesn't continue without ensuring it is finished and ensures that the completion event is propagated through to the end of the pipeline. Once the flow has been defined and configured then the last piece is to fill the pipeline and wait for the results. 
 
 {% highlight csharp %}
 
@@ -136,3 +138,11 @@ printBlock.Completion.Wait();
 //This example would print the values to the console instead of returning them
 
 {% endhighlight %}
+
+
+## Wrapping up
+
+TPL is a great choice for anyone trying to accomplish concurrent data processing, while not having to worry about managing all the stuff behind the scenes. When starting to build your own pipelines remember all you're really doing is playing with Legos. Now go forth and build cool shit!
+
+
+**This is the first of a series of tutorials**
