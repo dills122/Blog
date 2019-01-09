@@ -38,13 +38,13 @@ Another good analogy for TPL is building with Legos, each TPL block is like a Le
 
 **Well how does the data flow between blocks?**
 
-When data is passed to the head block, processing is block until the block is marked as complete, which kicks off the processing, this same flow continues throughout each block until all data has been processed. In TPL this is called `CompletionPropagation` and this option signals that each block must ensure the previous block has been marked as complete before sending the data to the next block. However, there are a few exceptions to this rule when working with certain block types, we'll go more in depth later in this tutorial series.
+When data is passed to the head block, transporting is blocked until the block is marked as complete, which kicks off the processing, this same flow continues throughout each block until all data has been processed. In TPL this is called `CompletionPropagation` and this option signals that each block must ensure completion before sending the data to the next block. However, there are a few exceptions to this rule when working with certain block types, we'll go more in depth later in this tutorial series.
 
 For a more detailed explanation [here](https://channel9.msdn.com/Shows/Going+Deep/Stephen-Toub-Inside-TPL-Dataflow) is a video where one of the major architects of TPL goes over the inner workings of the library.
 
 ## Block Types
 
-TPL has a variety of different block types, but we'll only go over the most commonly used blocks and for a full list and description checkout the documentation [here](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/dataflow-task-parallel-library#predefined-dataflow-block-types). Blocks can be split up into two different catagories, processing and transporting blocks with one exception the Action Block, which is more of a dead-end block since it only accepts input.
+TPL has a variety of different block types, but we'll only go over the most commonly used blocks. For a full list and description checkout the documentation [here](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/dataflow-task-parallel-library#predefined-dataflow-block-types). Blocks can be split up into two different categories, processing and transporting blocks with one exception the Action Block, which is more of a dead-end block since it only accepts input.
 
 > Block I/O accepts Tuples
 
@@ -101,7 +101,7 @@ var block = new BroadcastBlock<int>();
 
 ## Building a Pipeline
 
-Now that we have discussed the fundamental parts of TPL now lets put it to use and build a pipeline. Building a pipeline is as simple as connecting the existing blocks together in a flow and ensuring a start and end point.
+Now that we have discussed the fundamental parts of TPL lets put it to use and build a pipeline. Building a pipeline is as simple as connecting the existing blocks together in a flow and ensuring a start and end point.
 
 > Note if an Action Block is not at the end, the flow will NOT complete!
 
